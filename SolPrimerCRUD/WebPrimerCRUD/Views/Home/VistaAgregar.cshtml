@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>VistaAgregar</title>
+    <!--Agregar bootstrap-->
+<link href="~/Content/bootstrap.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="container">
+        <h1>Nuevo Alumno</h1>
+        <form action="/Home/Agregar", method="post">
+            <label>Nombre</label>
+            <input type="text" name="nombre" />
+
+            <label>Apellido Paterno</label>
+            <input type="text" name="paterno" />
+
+            <label>Apellido Materno</label>
+            <input type="text" name="materno" />
+
+            <label class="clase1">Edad</label>
+            <input type="number" name="edad" class="clase1" />
+
+            <label>Correo</label>
+            <input type="text" name="correo" />
+
+            <input type="submit" name="Guardar"  class="btn btn-danger"/>
+        </form>
+    </div>
+</body>
+</html>

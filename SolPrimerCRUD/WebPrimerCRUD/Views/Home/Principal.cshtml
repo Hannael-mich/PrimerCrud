@@ -1,0 +1,60 @@
+﻿@using System.Data
+<!--Declarando el modelo de la vista-->
+@model DataTable
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Principal</title>
+    <!--Agregar bootstrap-->
+    <link href="~/Content/bootstrap.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="container">
+        <h1 class="display-3">Primer CRUD</h1>
+        <a href="/Home/Conectar" class="btn btn-dark">Probar conexion</a>
+        <br />
+        <a href="/Home/IrAgregar" class="btn btn-danger" >Agregar</a>
+
+        <h3>@TempData["mensaje"]</h3>
+
+        <table class="table table-warning table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th> ID </th>
+                        <th> Nombre </th>
+                        <th> Apellido Paterno </th>
+                        <th> Apellido Materno </th>
+                        <th> Edad </th>
+                        <th> Correo </th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   @foreach (DataRow fila in Model.Rows)
+                    {
+                       <tr>
+                           <td>@fila["idAlumno"]</td>
+                           <td>@fila["nombre"]</td>
+                           <td>@fila["apellidoPaterno"]</td>
+                           <td>@fila["apellidoMaterno"]</td>
+                           <td>@fila["edad"]</td>
+                           <td>@fila["correo"]</td>
+                           <td>
+                               <a href="/Home/Eliminar?idAlumno=@fila["idAlumno"]" class="btn btn-danger">Eliminar</a>
+
+                               <a href="/Home/ObtenerParaEditar?idAlumno=@fila["idAlumno"]" class="btn btn-info">Editar</a>
+                           </td>
+                       </tr>
+                    }
+                </tbody>
+            </table>
+    </div>
+</body>
+</html>

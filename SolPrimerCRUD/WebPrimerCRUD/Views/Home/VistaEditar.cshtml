@@ -1,0 +1,43 @@
+﻿@using System.Data
+
+@model DataRow
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>VistaEditar</title>
+    <!--Agregar bootstrap-->
+<link href="~/Content/bootstrap.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="container">
+        <h1>Editar Alumno</h1>
+        <form action="/Home/Editar" , method="post">
+            <input type="hidden" name="idAlumno" value="@Model["idAlumno"]"/>
+
+            <label>Nombre</label>
+            <input type="text" name="nombre" value="@Model["nombre"]"/>
+
+            <label>Apellido Paterno</label>
+            <input type="text" name="paterno" value="@Model["apellidoPaterno"]"/>
+
+            <label>Apellido Materno</label>
+            <input type="text" name="materno" value="@Model["apellidoMaterno"]"/>
+
+            <label>Edad</label>
+            <input type="number" name="edad" value="@Model["edad"]"/>
+
+            <label>Correo</label>
+            <input type="text" name="correo" value="@Model["correo"]"/>
+
+            <input type="submit" value="Guardar" class="btn btn-danger"/>
+        </form>
+    </div>
+</body>
+</html>
